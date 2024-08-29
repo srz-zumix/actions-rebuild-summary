@@ -1,0 +1,26 @@
+name: Test
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      param1:
+        type: string
+        required: true
+      param2:
+        type: string
+        default: "hello"
+        required: false
+  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: $github
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "${GITHUB_CONTEXT}"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create rebuild summary
+        uses: ./
