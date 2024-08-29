@@ -15,6 +15,7 @@ runs:
         # Create Gh CLI Command Summary
         WORKFLOW_PATH=${{ github.event.workflow }}
         {
+          echo '## Rebuild workflow'
           echo '```sh'
           echo "echo '$(echo '${{ inputs.inputs-json }}' | jq -c)' | ${GH_COMMAND} \"${WORKFLOW_PATH##*/}\""
           echo '```'
