@@ -21,6 +21,6 @@ jobs:
         run: |
           echo "${GITHUB_CONTEXT}"
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Create rebuild summary
         uses: ./
